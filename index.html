@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for search engines -->
+  <meta name="description"
+    content="Locomotion Beyond Feet enables whole-body humanoid locomotion on diverse and challenging terrains through chaining distinct locomotion skills that actively engage body parts beyond the legs for stability and support.">
+  <meta name="keywords"
+    content="Humanoid, Locomotion, Whole-Body, Reinforcement Learning, Keyframe Animation, Robot Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Locomotion Beyond Feet</title>
+
+  <!-- NOTE: Remove this analytics code before deploying your own site! -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'YOUR-GA-ID');
+  </script>
+  -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <!-- <a class="navbar-item" href="https://your-homepage.com">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More ToddlerBot Projects
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://toddlerbot.github.io/">
+              ToddlerBot
+            </a>
+            <a class="navbar-item" href="https://robot-trains-robot.github.io/">
+              Robot Trains Robot
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Locomotion Beyond Feet</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://tae-h-yang.github.io/">Tae Hoon Yang</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://hshi74.github.io/">Haochen Shi</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/jc-hu/">Jiacheng Hu</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/zhicongzhang/">Zhicong Zhang</a>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/danieljiangdj/">Daniel Jiang</a>,</span>
+              <span class="author-block">
+                <a href="http://me.weizhuowang.com/">Weizhuo Wang</a>,</span>
+              <span class="author-block">
+                <a href="https://shockwavehe.github.io/">Yao He</a>,</span>
+              <span class="author-block">
+                <a href="https://zhenwu061.github.io/">Zhen Wu</a>,</span>
+              <span class="author-block">
+                <a href="">Yuming Chen</a>,</span>
+              <span class="author-block">
+                <a href="https://yifan-hou.github.io/">Yifan Hou</a>,</span>
+              <span class="author-block">
+                <a href="https://monroekennedy3.com/">Monroe Kennedy III</a>,</span>
+              <span class="author-block">
+                <a href="https://shurans.github.io/">Shuran Song</a><sup>†</sup>,</span>
+              <span class="author-block">
+                <a href="https://tml.stanford.edu/people/karen-liu">C. Karen Liu</a><sup>†</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Stanford University</span>
+            </div>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup>*</sup>Equal contribution,</span>
+              <span class="author-block"><sup>†</sup>Equal advising</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/XXXX.XXXXX" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/XXXX.XXXXX" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/your-org/your-repo"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/your-org/your-repo/releases"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <div class="video-placeholder" style="height: 200px;">Video 1</div>
+        </div>
+        <div class="item item-video2">
+          <div class="video-placeholder" style="height: 200px;">Video 2</div>
+        </div>
+        <div class="item item-video3">
+          <div class="video-placeholder" style="height: 200px;">Video 3</div>
+        </div>
+        <div class="item item-video4">
+          <div class="video-placeholder" style="height: 200px;">Video 4</div>
+        </div>
+        <div class="item item-video5">
+          <div class="video-placeholder" style="height: 200px;">Video 5</div>
+        </div>
+        <div class="item item-video6">
+          <div class="video-placeholder" style="height: 200px;">Video 6</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+
+  <section class="section teaser-section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-centered">
+          <div class="publication-video">
+            <video id="wall-stairs-chair-box" playsinline autoplay muted loop controls>
+              <source src="./static/videos/wall_stairs_chair_box_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths ">
+          <img src="./static/images/teaser.png"
+            alt="Teaser image showing the robot performing nine distinct locomotion skills including getting down, crawling, climbing walls, platforms, and stairs."
+            style="max-width: 100%;">
+          <p>
+            <span class="dnerf">Locomotion Beyond Feet</span> enables whole-body humanoid locomotion
+            on diverse and challenging terrains—including low-clearance spaces, knee-high walls and platforms,
+            and steep stairs—through chaining nine distinct locomotion skills.
+          </p>
+        </div>
+      </div>
+
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Most locomotion methods for humanoid robots focus on leg-based gaits, yet natural bipeds
+              frequently rely on hands, knees, and elbows to establish additional contacts for stability
+              and support in complex environments. This paper introduces <span class="dnerf">Locomotion Beyond
+                Feet</span>,
+              a comprehensive system for whole-body humanoid locomotion across extremely challenging terrains,
+              including low-clearance spaces under chairs, knee-high walls, knee-high platforms, and steep
+              ascending and descending stairs.
+              Our approach addresses two key challenges: contact-rich motion planning and generalization
+              across diverse terrains. To this end, we combine physics-grounded keyframe animation with
+              reinforcement learning. Keyframes encode human knowledge of motor skills, are embodiment-specific,
+              and can be readily validated in simulation or on hardware, while reinforcement learning transforms
+              these references into robust, physically accurate motions. We further employ a hierarchical framework
+              consisting of terrain-specific motion-tracking policies, failure recovery mechanisms, and a
+              vision-based skill planner.
+              Real-world experiments demonstrate that <span class="dnerf">Locomotion Beyond Feet</span>
+              achieves robust whole-body locomotion and generalizes across obstacle sizes, obstacle instances,
+              and terrain sequences. All work will be open-sourced.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <div class="video-placeholder" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              YouTube Video Embed<br>
+              Replace with iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            </div>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&amp;showinfo=0" frameborder="0"
+              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-centered">
+          <h2 class="title is-3">Different Obstacle Courses</h2>
+          <div class="columns is-multiline is-centered">
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="stairs-wall-box-chair" playsinline controls>
+                  <source src="./static/videos/stairs_wall_box_chair_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Stairs -> Wall -> Box -> Chair</b>
+            </div>
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="box-chair-stairs-wall" playsinline controls>
+                  <source src="./static/videos/box_chair_stairs_wall_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Box -> Chair -> Stairs -> Wall</b>
+            </div>
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="chair-wall-box-stairs" playsinline controls>
+                  <source src="./static/videos/chair_wall_box_stairs_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Chair -> Wall -> Box -> Stairs</b>
+            </div>
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="stairs-box-wall-chair-chair" playsinline controls>
+                  <source src="./static/videos/stairs_box_wall_chair_chair_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Stairs -> Box -> Wall -> Chair -> Chair</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths ">
+          <h2 class="title is-3 has-text-centered">Keyframe Editing Tool</h2>
+          <div class="publication-video">
+            <video id="cart" playsinline controls>
+              <source src="./static/videos/keyframe_app_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p>
+            Through keyframe editing with <a href="https://github.com/Stanford-TML/robot_keyframe_kit">our open-source,
+              intuitive tool</a>, we can easily compose
+            complex motion sequences, such as getting off a cart.
+          </p>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-centered">
+          <h2 class="title is-3">Robustness</h2>
+          <div class="columns is-multiline is-centered">
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="stairs-wall-box-chair" playsinline controls>
+                  <source src="./static/videos/tall_box_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Unseen Tall Box</b>
+            </div>
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="box-chair-stairs-wall" playsinline controls>
+                  <source src="./static/videos/short_box_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Unseen Short Box</b>
+            </div>
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="chair-wall-box-stairs" playsinline controls>
+                  <source src="./static/videos/three_wall_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Three Consecutive Wall of Different Heights</b>
+            </div>
+            <div class="column is-half-tablet is-full-mobile">
+              <div class="publication-video">
+                <video id="stairs-box-wall-chair-chair" playsinline controls>
+                  <source src="./static/videos/robustness_compressed.mp4" type="video/mp4">
+                </video>
+              </div>
+              <b>Fall Recovery</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Method Pipeline. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method</h2>
+          <div class="has-text-centered" style="margin-top: 1rem;">
+            <img src="./static/images/pipeline.png"
+              alt="Pipeline overview showing the system architecture for whole-body humanoid locomotion."
+              style="max-width: 100%;">
+          </div>
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <p>
+              Our system consists of three main stages.
+              (1) We generate physics-grounded keyframe motions
+              using a physics-aware GUI application, where robot poses and timing are specified interactively.
+              (2) We interpolate these keyframes to create reference motions that serve as tracking rewards
+              for reinforcement learning policies. We apply extensive domain randomization—including variations
+              in initial robot states, obstacle dimensions, and IMU noise—to ensure robust sim-to-real transfer.
+              (3) A learned skill planner processes depth input from a depth estimation module at 3.1 Hz,
+              combined with IMU readings and the current skill state, to select the appropriate next skill.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title has-text-centered">BibTeX (TODO: fix)</h2>
+          <pre><code>@inproceedings{yang2026locomotion,
+  author    = {Yang, Tae Hoon and Hu, Jiacheng and Shi, Haochen and Zhang, Zhicong and Jiang, Daniel and Wang, Weizhuo and He, Yao and Wu, Zhen and Hou, Yifan and Kennedy, Monroe and Song, Shuran and Liu, Karen},
+  title     = {Locomotion Beyond Feet},
+  year      = {2026},
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Acknowledgment</h2>
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <p>
+              The authors would like to express their great gratitude to the helpful discussions from all members of
+              TML
+              and REALab.
+              This work was supported in part by the NSF Award #2143601, #2037101, #2132519, #2153854, Sloan
+              Fellowship, and Stanford Institute for Human-Centered AI.
+              The views and conclusions contained herein are those of the authors and should not be interpreted as
+              necessarily representing the official policies, either expressed or implied, of the sponsors.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="section" id="BibTeX">
+    
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <!-- <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div> -->
+          <p>
+            Website template by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+  </footer>
+
+</body>
+
+</html>
